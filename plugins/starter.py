@@ -133,37 +133,33 @@ def process_message(data):
 
     try:
     
-        if( bot_on or data['text'].startswith("lemonbot") ):
-            
-            
-        
-            elif p_bot_hi.match(data['text']):
-                outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+        if p_bot_hi.match(data['text']):
+            outputs.append([data['channel'], "{}".format(random.choice(greetings))])
 
-            elif p_bot_joke.match(data['text']):
-                outputs.append([data['channel'], "Why did the python cross the road?"])
-                outputs.append([data['channel'], "__typing__", 5])
-                outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
+        elif p_bot_joke.match(data['text']):
+            outputs.append([data['channel'], "Why did the python cross the road?"])
+            outputs.append([data['channel'], "__typing__", 5])
+            outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
 
-            elif p_bot_attach.match(data['text']):
-                txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
-                attachments.append([data['channel'], txt, build_demo_attachment(txt)])
+        elif p_bot_attach.match(data['text']):
+            txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
+            attachments.append([data['channel'], txt, build_demo_attachment(txt)])
 
-            elif p_bot_help.match(data['text']):
-                outputs.append([data['channel'], "{}".format(help_text)])
+        elif p_bot_help.match(data['text']):
+            outputs.append([data['channel'], "{}".format(help_text)])
 
-            elif p_bot_joke.match(data [ 'text' ] ):
-                outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
+        elif p_bot_joke.match(data [ 'text' ] ):
+            outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
 
-            elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
-                outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
+        elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
-            # leave at end 
-            elif data['text'].startswith("lemonbot"):
-                outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
+        # leave at end 
+        elif data['text'].startswith("lemonbot"):
+            outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
-            elif data['channel'].startswith("D"):  # direct message channel to the bot
-                outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
+        elif data['channel'].startswith("D"):  # direct message channel to the bot
+            outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
                 
     except:
         outputs.append( p data[ 'channel' ], "System error! OMG!" )
