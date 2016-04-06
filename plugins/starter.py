@@ -6,7 +6,6 @@ crontable = []
 outputs = []
 attachments = []
 typing_sleep = 0
-bot_on = True
 
 secrets   = [ "I know secrets...",
               "If you have 3 quarters, 4 dimes, and 4 pennies, you have $1.19. You also have the largest amount of money in coins without being able to make change for a dollar.",
@@ -129,49 +128,45 @@ p_bot_dance = re.compile("lemonbot[\s]*dance")
 p_bot_secret = re.compile("lemonbot[\s]*secret")
 p_bot_fact = re.compile("lemonbot[\s]*fact")
 
-p_bot_on = re.compile( "lemonbot[\s]*on" )
-p_bot_off = re.compile( "lemonbot[\s]*shutup" )
- 
-
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
 
+    try:
     
-    
-    if( bot_on or data['text'].startswith("lemonbot") ):
+        if( bot_on or data['text'].startswith("lemonbot") ):
+            
+            
         
-        bot_on = True
-        
-        if( p_bot_off.match( data[ 'text' ] ) ):
-            bot_on = False
-    
-        elif p_bot_hi.match(data['text']):
-            outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+            elif p_bot_hi.match(data['text']):
+                outputs.append([data['channel'], "{}".format(random.choice(greetings))])
 
-        elif p_bot_joke.match(data['text']):
-            outputs.append([data['channel'], "Why did the python cross the road?"])
-            outputs.append([data['channel'], "__typing__", 5])
-            outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
+            elif p_bot_joke.match(data['text']):
+                outputs.append([data['channel'], "Why did the python cross the road?"])
+                outputs.append([data['channel'], "__typing__", 5])
+                outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
 
-        elif p_bot_attach.match(data['text']):
-            txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
-            attachments.append([data['channel'], txt, build_demo_attachment(txt)])
+            elif p_bot_attach.match(data['text']):
+                txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
+                attachments.append([data['channel'], txt, build_demo_attachment(txt)])
 
-        elif p_bot_help.match(data['text']):
-            outputs.append([data['channel'], "{}".format(help_text)])
+            elif p_bot_help.match(data['text']):
+                outputs.append([data['channel'], "{}".format(help_text)])
 
-        elif p_bot_joke.match(data [ 'text' ] ):
-            outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
+            elif p_bot_joke.match(data [ 'text' ] ):
+                outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
 
-        elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
-            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
+            elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
+                outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
-        # leave at end 
-        elif data['text'].startswith("lemonbot"):
-            outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
+            # leave at end 
+            elif data['text'].startswith("lemonbot"):
+                outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
-        elif data['channel'].startswith("D"):  # direct message channel to the bot
-            outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
+            elif data['channel'].startswith("D"):  # direct message channel to the bot
+                outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
+                
+    except:
+        outputs.append( p data[ 'channel' ], "System error! OMG!" )
           
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
