@@ -76,7 +76,7 @@ class RtmBot(object):
                     if( data[ "text" ] == "lemonbot shutup" ):
                         self.bot_on = False
                     
-                    
+                    else:    
                         self.bot_on = True
                         for plugin in self.bot_plugins:
                             plugin.register_jobs()
