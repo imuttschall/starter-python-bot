@@ -64,9 +64,19 @@ class RtmBot(object):
                 dbg("got {}".format(function_name))
                 if "text" in data and self.isBotMention(data["text"]):
                     function_name = "process_mention"
-                for plugin in self.bot_plugins:
-                    plugin.register_jobs()
-                    plugin.do(function_name, data)
+                
+                if( self.bot_on or data[ "text" ].startswith( "lemonbot" ) ):
+                    
+                    if( data[ "text" ] == "lemonbot shutup" ):
+                        self.bot_on = False
+                    
+                    else:
+                    
+                        self.bot_on = True
+                        for plugin in self.bot_plugins:
+                            plugin.register_jobs()
+                            plugin.do(function_name, data)
+                            
     def output(self):
         for plugin in self.bot_plugins:
             limiter = False
@@ -113,10 +123,6 @@ class RtmBot(object):
             self.bot_plugins.append(Plugin(name))
 #            except:
 #                print "error loading plugin %s" % name
-    def turnOn( self ):
-        self.bot_on = True
-    def turnOff( self ):
-        self.bot_on = False
 
 class Plugin(object):
     def __init__(self, name, plugin_config={}):
