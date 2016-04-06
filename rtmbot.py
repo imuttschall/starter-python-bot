@@ -66,10 +66,10 @@ class RtmBot(object):
                 if "text" in data and self.isBotMention( data[ 'text' ] ):
                     function_name = "process_mention"
                 
-                        self.bot_on = True
-                        for plugin in self.bot_plugins:
-                            plugin.register_jobs()
-                            plugin.do(function_name, data)
+                    self.bot_on = True
+                    for plugin in self.bot_plugins:
+                        plugin.register_jobs()
+                        plugin.do(function_name, data)
                 
                 if ( "text" in data ) and ( self.bot_on or data[ 'text' ].startswith( "lemonbot" ) ):
                     
