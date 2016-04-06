@@ -25,6 +25,7 @@ class RtmBot(object):
         self.token = token
         self.bot_plugins = []
         self.slack_client = None
+        self.bot_on = True
     def connect(self):
         """Convenience method that creates Server instance"""
         self.slack_client = SlackClient(self.token)
@@ -112,6 +113,10 @@ class RtmBot(object):
             self.bot_plugins.append(Plugin(name))
 #            except:
 #                print "error loading plugin %s" % name
+    def turnOn( self ):
+        self.bot_on = True
+    def turnOff( self ):
+        self.bot_on = False
 
 class Plugin(object):
     def __init__(self, name, plugin_config={}):
