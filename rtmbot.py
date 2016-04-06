@@ -63,24 +63,26 @@ class RtmBot(object):
                 function_name = "process_" + data["type"]
                 dbg("got {}".format(function_name))
                 dbg( "data {}".format(data))
-                if "text" in data and self.isBotMention( data[ 'text' ] ):
-                    function_name = "process_mention"
                 
-                    self.bot_on = True
-                    for plugin in self.bot_plugins:
-                        plugin.register_jobs()
-                        plugin.do(function_name, data)
+                if "text" in data:
                 
-                if ( "text" in data ) and ( self.bot_on or data[ 'text' ].startswith( "lemonbot" ) ):
-                    
-                    if( data[ "text" ] == "lemonbot shutup" ):
-                        self.bot_on = False
-                    
-                    else:    
+                    if self.isBotMention( data[ 'text' ] ):
+                        function_name = "process_mention"
                         self.bot_on = True
-                        for plugin in self.bot_plugins:
-                            plugin.register_jobs()
-                            plugin.do(function_name, data)
+                    
+                    elif self.bot_on or data[ 'text' ].startswith( "lemonbot" ):
+                        
+                        if( data[ "text" ] == "lemonbot shutup" ):
+                            self.bot_on = False
+                            function_name = "process_off"
+                        
+                        else:    
+                            self.bot_on = True
+                                            
+                
+                for plugin in self.bot_plugins:
+                    plugin.register_jobs()
+                    plugin.do(function_name, data)
                             
     def output(self):
         for plugin in self.bot_plugins:
