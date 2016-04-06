@@ -60,5 +60,3 @@ def build_demo_attachment(txt):
 		"image_url" : "https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png",
 		"color" : "#7CD197",
     }
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
