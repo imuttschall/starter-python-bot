@@ -6,6 +6,7 @@ crontable = []
 outputs = []
 attachments = []
 typing_sleep = 0
+bot_on = True
 
 secrets   = [ "I know secrets...",
               "If you have 3 quarters, 4 dimes, and 4 pennies, you have $1.19. You also have the largest amount of money in coins without being able to make change for a dollar.",
@@ -131,8 +132,6 @@ p_bot_fact = re.compile("lemonbot[\s]*fact")
 p_bot_on = re.compile( "lemonbot[\s]*on" )
 p_bot_off = re.compile( "lemonbot[\s]*shutup" )
  
-
-bot_on = True
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
