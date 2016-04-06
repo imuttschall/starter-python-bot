@@ -142,8 +142,8 @@ def process_message(data):
     if( bot_on or data['text'].startswith("lemonbot") ):
         
         bot_on = True
-    
-        if( p_bot_off.match( data['text' ] ) ):
+        
+        if( p_bot_off.match( data[ 'text' ] ) ):
             bot_on = False
     
         elif p_bot_hi.match(data['text']):
