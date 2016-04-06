@@ -1,3 +1,20 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @imuttschall
+ Unwatch 1
+  Star 0
+  Fork 82 imuttschall/starter-python-bot
+forked from BeepBoopHQ/starter-python-bot
+ Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathstarter-python-bot/plugins/starter.py
+1444031  on Jan 20
+@randompi randompi Implemented lemonbot attachment command, through api_call.
+1 contributor
+RawBlameHistory     63 lines (51 sloc)  2.42 KB
 import time
 import re
 import random
@@ -10,17 +27,17 @@ typing_sleep = 0
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
 help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
-    "`pybot hi` for a random greeting.",
-    "`pybot joke` for a question, typing indicator, then answer style joke.",
-    "`pybot attachment` to see a Slack attachment message.",
+    "`lemonbot hi` for a random greeting.",
+    "`lemonbot joke` for a question, typing indicator, then answer style joke.",
+    "`lemonbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
-    "`pybot help` to see this again.")
+    "`lemonbot help` to see this again.")
 
 # regular expression patterns for string matching
-p_bot_hi = re.compile("pybot[\s]*hi")
-p_bot_joke = re.compile("pybot[\s]*joke")
-p_bot_attach = re.compile("pybot[\s]*attachment")
-p_bot_help = re.compile("pybot[\s]*help")
+p_bot_hi = re.compile("lemonbot[\s]*hi")
+p_bot_joke = re.compile("lemonbot[\s]*joke")
+p_bot_attach = re.compile("lemonbot[\s]*attachment")
+p_bot_help = re.compile("lemonbot[\s]*help")
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -40,7 +57,7 @@ def process_message(data):
     elif p_bot_help.match(data['text']):
         outputs.append([data['channel'], "{}".format(help_text)])
 
-    elif data['text'].startswith("pybot"):
+    elif data['text'].startswith("lemonbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
     elif data['channel'].startswith("D"):  # direct message channel to the bot
@@ -60,3 +77,5 @@ def build_demo_attachment(txt):
 		"image_url" : "https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png",
 		"color" : "#7CD197",
     }
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
