@@ -62,10 +62,11 @@ class RtmBot(object):
             if "type" in data:
                 function_name = "process_" + data["type"]
                 dbg("got {}".format(function_name))
-                if "text" in data and self.isBotMention(data["text"]):
+                print data
+                if "text" in data and self.isBotMention( data[ 'text' ] ):
                     function_name = "process_mention"
                 
-                if( self.bot_on or data[ "text" ].startswith( "lemonbot" ) ):
+                if( self.bot_on or data[ 'text' ].startswith( "lemonbot" ) ):
                     
                     if( data[ "text" ] == "lemonbot shutup" ):
                         self.bot_on = False
