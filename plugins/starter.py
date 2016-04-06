@@ -161,10 +161,10 @@ def process_message(data):
         elif p_bot_help.match(data['text']):
             outputs.append([data['channel'], "{}".format(help_text)])
 
-        elif p_bot_joke.match(data['text']):
-            outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
+        elif p_bot_joke.match(data [ 'text' ] ):
+            outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
 
-        elif p_bot_secret.match(data['text'] or  p_bot_fact.match(data['text']):
+        elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
         # leave at end 
