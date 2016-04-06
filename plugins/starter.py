@@ -162,7 +162,7 @@ def process_message(data):
             outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
                 
     except:
-        outputs.append( p data[ 'channel' ], "System error! OMG!" )
+        outputs.append( data[ 'channel' ], "System error! OMG!" )
           
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
