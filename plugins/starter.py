@@ -143,7 +143,7 @@ def process_message(data):
         
         bot_on = True
     
-        if( p_bot_off.match( data['text' ] ):
+        if( p_bot_off.match( data['text' ] ) ):
             bot_on = False
     
         elif p_bot_hi.match(data['text']):
