@@ -125,8 +125,8 @@ p_bot_attach = re.compile("lemonbot[\s]*attachment")
 p_bot_help = re.compile("lemonbot[\s]*help")
 p_bot_dance = re.compile("lemonbot[\s]*dance")
 
-p_bot_secret = re.compile("lemonbot[\s]*secret")
-p_bot_fact = re.compile("lemonbot[\s]*fact")
+p_bot_secret = re.compile("lemonbot[\s]*tell me a secret")
+p_bot_fact = re.compile("lemonbot[\s]*fact of the day")
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
