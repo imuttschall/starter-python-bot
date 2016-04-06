@@ -80,9 +80,9 @@ class RtmBot(object):
                             self.bot_on = True
                                             
                 
-                for plugin in self.bot_plugins:
-                    plugin.register_jobs()
-                    plugin.do(function_name, data)
+                    for plugin in self.bot_plugins:
+                        plugin.register_jobs()
+                        plugin.do(function_name, data)
                             
     def output(self):
         for plugin in self.bot_plugins:
