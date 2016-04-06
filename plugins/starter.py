@@ -110,6 +110,9 @@ secrets   = [ "I know secrets...",
               "Kansas state law requires pedestrians crossing the highways at night to wear tail lights." ]
 
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
+dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
+
+
 help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`lemonbot hi` for a random greeting.",
@@ -135,6 +138,9 @@ def process_message(data):
     
         if p_bot_hi.match(data['text']):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+
+        if p_bot_dance.match(data['text']):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( dances ) ) ] )
 
         elif p_bot_joke.match(data['text']):
             outputs.append([data['channel'], "Why did the python cross the road?"])
@@ -168,6 +174,16 @@ def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
     outputs.append([data['channel'], "You really do care about me. :heart:"])
 
+def process_off(data):
+    logging.debug("process_off:data: {}".format(data))
+    outputs.append([data['channel'], "Ok... Shutting up now... :sad:"])
+
+def process_team_join(data):
+    logging.debug("process_team_join:data: {}".format(data))
+    outputs.append([data['channel'], "Welcome to Desire {}! :Heart:".format( data[ "user" ][ "name" ] ) ] )
+
+    
+    
 def build_demo_attachment(txt):
     return {
         "pretext" : "We bring bots to life. :sunglasses: :thumbsup:",
