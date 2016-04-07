@@ -162,37 +162,6 @@ def process_helpful(data):
     
         text = data[ "text" ].lower()
         
-        # MEMU
-        elif( "memu" in text ):
-            outputs.append([data['channel'], "{}".format(random.choice(memu))])
-
-        # C5
-        elif( True in [ x in text for x in [ "c5", "chris", "c5thebomb" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(c5))])
-
-        # KIT
-        elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(kit))])
-
-        # BEAVERER
-        elif( True in [ x in text for x in [ "beav", "beaver", "beaverer" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(beaverer))])
-
-        # RAMON
-        elif( True in [ x in text for x in [ "ramon", "ray ", " ray", "rey ", " rey", "del ", " del", "delrey", "ramondelrey" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(ramon))])
-
-        # HACKING
-        elif( True in [ x in text for x in [ "hack", "hacking", "virus", "hackingvirus" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(hacking))])
-
-        # ZUF
-        elif( "zuf" in text ):
-            outputs.append([data['channel'], "{}".format(random.choice(zuf))])
-
-        # VENOM
-        elif( True in [ x in text for x in [ "venom", "venomz", "venomzzzz" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(venom))])
         
         # GREETING
         if( "lb hi" in text or "lemonbot hi" in text ):
@@ -224,6 +193,38 @@ def process_helpful(data):
         # UNKNOWN COMMAND
         elif( text == "lb" or text == "lemonbot" ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( lb ) ) ] )
+        
+        # MEMU
+        elif( "memu" in text ):
+            outputs.append([data['channel'], "{}".format(random.choice(memu))])
+
+        # C5
+        elif( True in [ x in text for x in [ "c5", "chris", "c5thebomb" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(c5))])
+
+        # KIT
+        elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(kit))])
+
+        # BEAVERER
+        elif( True in [ x in text for x in [ "beav", "beaver", "beaverer" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(beaverer))])
+
+        # RAMON
+        elif( True in [ x in text for x in [ "ramon", "ray ", " ray", "rey ", " rey", "del ", " del", "delrey", "ramondelrey" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(ramon))])
+
+        # HACKING
+        elif( True in [ x in text for x in [ "hack", "hacking", "virus", "hackingvirus" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(hacking))])
+
+        # ZUF
+        elif( "zuf" in text ):
+            outputs.append([data['channel'], "{}".format(random.choice(zuf))])
+
+        # VENOM
+        elif( True in [ x in text for x in [ "venom", "venomz", "venomzzzz" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(venom))])
         
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
