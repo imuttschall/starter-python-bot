@@ -316,7 +316,7 @@ def process_snarky(data):
 
         # CAT BOUNCE
         elif( True in [ x in text for x in [ "cat", "bounce" ] ] ):
-            outputs.append( [ data[ 'channel' ], "<http://cat-bounce.com/>" ] )
+            outputs.append( [ data[ 'channel' ], "http://cat-bounce.com/" ] )
 
         # HOMER
         elif( "homer simpson" in text ):
@@ -337,7 +337,7 @@ def process_snarky(data):
 
         # CANNIBAL
         elif( "cannibal" in text ):
-            outputs.append( [ data[ 'channel' ], "<https://www.youtube.com/watch?v=o0u4M6vppCI>" ] )
+            outputs.append( [ data[ 'channel' ], "https://www.youtube.com/watch?v=o0u4M6vppCI" ] )
 
         # PEW PEW
         elif( "pew pew" in text ):
