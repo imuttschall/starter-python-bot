@@ -184,6 +184,10 @@ def process_helpful(data):
         elif( "tell me a secret" in text or "fact of the day" in text ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
+        # SECRET/FACT    
+        elif( "vote" in text ):
+            outputs.append( [ data[ 'channel' ], "<http://www.lemoncloud.org/community/threads/voting-rewards-links.718/>" ] )
+
         # leave at end 
         # UNKNOWN COMMAND
         elif( text == "lb" or text == "lemonbot" ):
