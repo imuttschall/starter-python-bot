@@ -208,122 +208,122 @@ def process_snarky(data):
             outputs.append([data['channel'], "{}".format(random.choice(memu))])
 
         # C5
-         elif( True in [ x in text for x in [ "c5", "chris", "c5thebomb" ] ] ):
+        elif( True in [ x in text for x in [ "c5", "chris", "c5thebomb" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(c5))])
 
         # KIT
-         elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230" ] ] ):
+        elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(kit))])
 
         # BEAVERER
-         elif( True in [ x in text for x in [ "beav", "beaver", "beaverer" ] ] ):
+        elif( True in [ x in text for x in [ "beav", "beaver", "beaverer" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(beaverer))])
 
         # RAMON
-         elif( True in [ x in text for x in [ "ramon", "ray ", " ray", "rey ", " rey", "del ", " del", "delrey", "ramondelrey" ] ] ):
+        elif( True in [ x in text for x in [ "ramon", "ray ", " ray", "rey ", " rey", "del ", " del", "delrey", "ramondelrey" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(ramon))])
 
         # HACKING
-         elif( True in [ x in text for x in [ "hack", "hacking", "virus", "hackingvirus" ] ] ):
+        elif( True in [ x in text for x in [ "hack", "hacking", "virus", "hackingvirus" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(hacking))])
 
         # ZUF
-         elif( "zuf" in text ):
+        elif( "zuf" in text ):
             outputs.append([data['channel'], "{}".format(random.choice(zuf))])
 
             
             
         # LANGUAGE
-         elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
+        elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(swear))])
 
         # TRUMP
-         elif( "donald trump" in text ):
+        elif( "donald trump" in text ):
             outputs.append( [ data[ 'channel' ], "Are you voting for trump? If so... 5 FREAKING SECONDS TO GET OFF MY LAWN" ] )
 
         # MEMU NERD
-         elif( "memu is a n3rd" in text ):
+        elif( "memu is a n3rd" in text ):
             outputs.append( [ data[ 'channel' ], "I agree" ] )
 
         # AWKWARD
-         elif( "this is awkward" in text ):
+        elif( "this is awkward" in text ):
             outputs.append( [ data[ 'channel' ], "Awkward turtle" ] )
 
         # LOVE BEAV
-         elif( "i love beaverer" in text ):
+        elif( "i love beaverer" in text ):
             outputs.append( [ data[ 'channel' ], "OMG ME TOO!!" ] )
 
         # TNT
-         elif( "tnt" in text ):
+        elif( "tnt" in text ):
             outputs.append( [ data[ 'channel' ], "Dynamite!" ] )
 
         # DUBSTEP
-         elif( "dubstep" in text ):
+        elif( "dubstep" in text ):
             outputs.append( [ data[ 'channel' ], "wubwubwub" ] )
 
         # CANNON
-         elif( "cannon" in text ):
+        elif( "cannon" in text ):
             outputs.append( [ data[ 'channel' ], "BOOM!" ] )
 
         # <3
-         elif( "<3" in text ):
+        elif( "<3" in text ):
             outputs.append( [ data[ 'channel' ], "<3<3<3" ] )
 
         # CAT BOUNCE
-         elif( True in [ x in text for x in [ "cat", "bounce" ] ] ):
+        elif( True in [ x in text for x in [ "cat", "bounce" ] ] ):
             outputs.append( [ data[ 'channel' ], "<http://cat-bounce.com/>" ] )
 
         # HOMER
-         elif( "homer simpson" in text ):
+        elif( "homer simpson" in text ):
             outputs.append( [ data[ 'channel' ], "Mmm. Slack..." ] )
 
         # RAID
-         elif( "raid" in text ):
+        elif( "raid" in text ):
             outputs.append( [ data[ 'channel' ], "I'll build the cannon!" ] )
 
 
         # DOZEN
-         elif( "dozen" in text ):
+        elif( "dozen" in text ):
             outputs.append( [ data[ 'channel' ], "A dozen means 12. A baker's dozen is 13!" ] )
 
         # MEOW
-         elif( "meow" in text ):
+        elif( "meow" in text ):
             outputs.append([data['channel'], "{}".format(random.choice(meow))])
 
         # CANNIBAL
-         elif( "cannibal" in text ):
+        elif( "cannibal" in text ):
             outputs.append( [ data[ 'channel' ], "<https://www.youtube.com/watch?v=o0u4M6vppCI>" ] )
 
         # PEW PEW
-         elif( "pew pew" in text ):
+        elif( "pew pew" in text ):
             outputs.append([data['channel'], "{}".format(random.choice(pew))])
 
         # SMART
-         elif( True in [ x in text for x in [ "smart", "intelligent", "wise" ] ] ):
+        elif( True in [ x in text for x in [ "smart", "intelligent", "wise" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(smart))])
 
         # SLAPS
-         elif( True in [ x in text for x in [ "slap", "slaps" ] ] ):
+        elif( True in [ x in text for x in [ "slap", "slaps" ] ] ):
             outputs.append( [ data['channel'], "{}".format( random.choice( slaps ) ) ] )
 
         # ZOMBIE
-         elif( True in [ x in text for x in [ "zombie", "zombies" ] ] ):
+        elif( True in [ x in text for x in [ "zombie", "zombies" ] ] ):
             outputs.append( [ data[ 'channel' ], "Ahhhhh! Run away!" ] )
 
         # ENDERMAN
-         elif( True in [ x in text for x in [ "enderman", "endermen" ] ] ):
+        elif( True in [ x in text for x in [ "enderman", "endermen" ] ] ):
             outputs.append( [ data[ 'channel' ], "//Covers eyes :see_no_evil:" ] )
 
         # DINOS
-         elif( True in [ x in text for x in [ "dinosaur", "dino", "dinosaurs", "dinos" ] ] ):
+        elif( True in [ x in text for x in [ "dinosaur", "dino", "dinosaurs", "dinos" ] ] ):
             outputs.append( [ data[ 'channel' ], "Don't move. They can't see us if we don't move." ] )
 
         # IMMALITY
-         elif( True in [ x in text for x in [ "imm ", " imm", "immality " ] ] ):
+        elif( True in [ x in text for x in [ "imm ", " imm", "immality " ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(immality))])
             
         # GREETING
-         elif( True in [ x in text for x in [ "hi ", " hi", "hello", "yo ", " yo", "sup ", " sup", "hoy ", " hoy", "hey ", " hey" ] ] ):
+        elif( True in [ x in text for x in [ "hi ", " hi", "hello", "yo ", " yo", "sup ", " sup", "hoy ", " hoy", "hey ", " hey" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
             
         
