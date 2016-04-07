@@ -109,7 +109,18 @@ secrets   = [ "I know secrets...",
               "The elephant is the only animal with 4 knees.",
               "Kansas state law requires pedestrians crossing the highways at night to wear tail lights." ]
 
-greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
+greetings = ['Hi friend!', 'Hello thereT', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.', '//Waves', 'Hoy', 'Welcome' ]
+memu = [ "OMG! Memu is here! //runs in circles", "I really don't like that Memu guy..." ]
+c5 = [ "//Bows down to the master", "c5 Is the bomb!" ]
+kit = [ "meow :smile_cat:", "Decorator extraordinaire! :smirk_cat:" ]
+immailty = [ "Immality is awesome!", "//Does the immality dance :dancers:" ]
+beaverer = [ "I love beavers! So cute and deadly.", "//munches on wood", "OMG! Is that the real Beaverer? I love his godliness. Worship him with me!" ]
+ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon, sing a song? //wiggles" ]
+hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
+
+smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
+slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson" "What did I ever do to you?" ]
+
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
 
@@ -121,52 +132,133 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "`@<your bot's name>` to demonstrate detecting a mention.",
     "`lemonbot help` to see this again.")
 
-# regular expression patterns for string matching
+# regular expression patterns for HELPFUL string matching
 p_bot_hi = re.compile("lemonbot[\s]*hi")
 p_bot_joke = re.compile("lemonbot[\s]*joke")
 p_bot_attach = re.compile("lemonbot[\s]*attachment")
 p_bot_help = re.compile("lemonbot[\s]*help")
 p_bot_dance = re.compile("lemonbot[\s]*dance")
-
 p_bot_secret = re.compile("lemonbot[\s]*tell me a secret")
 p_bot_fact = re.compile("lemonbot[\s]*fact of the day")
 
-def process_message(data):
-    logging.debug("process_message:data: {}".format(data))
+# regular expression patterns for SNARKY string matching
+
+
+
+
+def process_helpful(data):
+    logging.debug("process_helpful:data: {}".format(data))
 
     try:
     
+        # GREETING
         if p_bot_hi.match(data['text']):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
 
+        # DANCE
         elif p_bot_dance.match(data['text']):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( dances ) ) ] )
 
+        # JOKE
         elif p_bot_joke.match(data['text']):
             outputs.append([data['channel'], "Why did the python cross the road?"])
             outputs.append([data['channel'], "__typing__", 5])
             outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
 
-        elif p_bot_attach.match(data['text']):
-            txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
-            attachments.append([data['channel'], txt, build_demo_attachment(txt)])
+        # ATTACH
+        #elif p_bot_attach.match(data['text']):
+        #    txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
+        #    attachments.append([data['channel'], txt, build_demo_attachment(txt)])
 
+        # HELP
         elif p_bot_help.match(data['text']):
             outputs.append([data['channel'], "{}".format(help_text)])
 
-        elif p_bot_joke.match(data [ 'text' ] ):
-            outputs.append( [ data[ 'channel' ], "Hello, I'm the BeepBoop python starter bot.\n{}".format( help_text ) ] )
-
+        # SECRET/FACT    
         elif p_bot_secret.match(data['text'] ) or p_bot_fact.match( data[ 'text'] ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
         # leave at end 
+        # UNKNOWN COMMAND
         elif data['text'].startswith("lemonbot"):
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
-
-        elif data['channel'].startswith("D"):  # direct message channel to the bot
-            outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
                 
+    except:
+        outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
+          
+def process_snarky(data):
+    logging.debug("process_snarky:data: {}".format(data))
+
+    try:
+    
+        # GREETING
+         if( True in [ x in data[ "text" ] ] for x in [ "hi", "hello", "yo", "sup", "hoy", "hey" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+
+        # MEMU
+         elif( "memu" in data[ "text" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(memu))])
+
+        # C5
+         elif( True in [ x in data[ "text" ] ] for x in [ "c5", "chris", "c5thebomb" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(c5))])
+
+        # KIT
+         elif( True in [ x in data[ "text" ] ] for x in [ "kitty", "kit", "kittyluv", "kittyluv1230" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(kit))])
+
+        # IMMALITY
+         elif( True in [ x in data[ "text" ] ] for x in [ "imm", "immality" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(immality))])
+
+        # BEAVERER
+         elif( True in [ x in data[ "text" ] ] for x in [ "beav", "beaver", "beaverer" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(beaverer))])
+
+        # RAMON
+         elif( True in [ x in data[ "text" ] ] for x in [ "ramon", "ray", "rey", "del", "delrey", "ramondelrey" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(ramon))])
+
+        # HACKING
+         elif( True in [ x in data[ "text" ] ] for x in [ "hack", "hacking", "virus", "hackingvirus" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(hacking))])
+
+            
+            
+        # LANGUAGE
+         elif( True in [ x in data[ "text" ] ] for x in [ "hell", "damn", "dam", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ):
+            outputs.append( [ data[ 'channel' ], "HEY! Watch the language!" ] )
+
+        # DOZEN
+         elif( "dozen" in data[ "text" ] ):
+            outputs.append( [ data[ 'channel' ], "A dozen means 12. A baker's dozen is 13!" ] )
+
+        # CANNIBAL
+         elif( "cannibal" in data[ "text" ] ):
+            outputs.append( [ data[ 'channel' ], "<https://www.youtube.com/watch?v=o0u4M6vppCI|actual cannibal Shia Labeouf>" ] )
+
+        # SMART
+         elif( True in [ x in data[ "text" ] ] for x in [ "smart", "intelligent", "wise" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(smart))])
+
+        # SLAPS
+         elif( True in [ x in data[ "text" ] ] for x in [ "slap", "slaps" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(slap))])
+
+        # ZOMBIE
+         elif( True in [ x in data[ "text" ] ] for x in [ "zombie", "zombies" ] ):
+            outputs.append( [ data[ 'channel' ], "Ahhhhh! Run away!" ] )
+
+        # ENDERMAN
+         elif( True in [ x in data[ "text" ] ] for x in [ "enderman", "endermen" ] ):
+            outputs.append( [ data[ 'channel' ], "//Covers eyes :see_no_evil:" ] )
+
+        # DINOS
+         elif( True in [ x in data[ "text" ] ] for x in [ "dinosaur", "dino", "dinosaurs", "dinos" ] ):
+            outputs.append( [ data[ 'channel' ], "Don't move. They can't see us if we don't move." ] )
+
+        
+        
     except:
         outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
           
@@ -174,9 +266,13 @@ def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
     outputs.append([data['channel'], "You really do care about me. :heart:"])
 
-def process_off(data):
-    logging.debug("process_off:data: {}".format(data))
-    outputs.append([data['channel'], "Ok... Shutting up now... :sad:"])
+def process_mode_helpful(data):
+    logging.debug("process_mode_helpful:data: {}".format(data))
+    outputs.append( [ data[ 'channel' ], "Ok... Shutting up now... :disappointed:" ] )
+
+def process_mode_snarky(data):
+    logging.debug("process_mode_snarky:data: {}".format(data))
+    outputs.append( [ data[ 'channel' ], "OF COURSE! WHY DIDN'T YOU SAY SO SOONER?!? :smiling_imp:" ] )
 
 def process_team_join(data):
     logging.debug("process_team_join:data: {}".format(data))
