@@ -134,12 +134,13 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`lemonbot hi` for a random greeting.",
     "`lemonbot joke` for a question, typing indicator, then answer style joke.",
-    "`lemonbot attachment` to see a Slack attachment message.",
-    "`@<your bot's name>` to demonstrate detecting a mention.",
+    "`lemonbot tell me a secret` or 'lemonbot fact of the day' to see a random fact",
+    "`lemonbot dance` to make your lemonbot dance",
+    "'lemonbot vote' to see a link for voting for lemoncloud.",
     "`lemonbot help` to see this again.")
 
 # regular expression patterns for HELPFUL string matching
-commands = [ "hi", "joke", "help", "dance", "tell me a secret", "fact of the day, vote"
+commands = [ "hi", "joke", "help", "dance", "tell me a secret", "fact of the day, vote" ]
 
 p_bot_hi = re.compile("lemonbot[\s]*hi")
 p_bot_joke = re.compile("lemonbot[\s]*joke")
