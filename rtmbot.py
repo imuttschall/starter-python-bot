@@ -84,12 +84,8 @@ class RtmBot(object):
                             dbg( "mention")
                             function_name = "process_mention"
                             self.bot_on = True
-                        
-                        elif data[ 'text' ][ 0 ] == '/':
-                            dbg( "slash command" )
-                            function_name = "process_slash"
-                        
-                        elif data[ 'text' ].lower().startswith( "lemonbot" ):
+                                                
+                        elif data[ 'text' ].lower().startswith( "lemonbot" ) or data[ 'text' ].lower().startswith( "lb" ):
                             dbg( "command")
                             function_name = "process_helpful"
                             
