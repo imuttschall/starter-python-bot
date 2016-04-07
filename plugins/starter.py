@@ -337,7 +337,7 @@ def process_snarky(data):
 
         # CANNIBAL
         elif( "cannibal" in text ):
-            outputs.append( [ data[ 'channel' ], "https://www.youtube.com/watch?v=o0u4M6vppCI" ] )
+            outputs.append( [ data[ 'channel' ], "<https://www.youtube.com/watch?v=o0u4M6vppCI>", '"unfurl_links": true' ] )
 
         # PEW PEW
         elif( "pew pew" in text ):
