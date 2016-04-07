@@ -139,7 +139,7 @@ def process_message(data):
         if p_bot_hi.match(data['text']):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
 
-        if p_bot_dance.match(data['text']):
+        elif p_bot_dance.match(data['text']):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( dances ) ) ] )
 
         elif p_bot_joke.match(data['text']):
