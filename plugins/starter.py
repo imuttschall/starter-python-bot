@@ -118,6 +118,7 @@ beaverer = [ "I love beavers! So cute and deadly.", "//munches on wood", "OMG! I
 ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon, sing a song? //wiggles" ]
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
+venom = [ "Cuddly, deadly, panda bear", "Never say no to panda" ]
 
 smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
 slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson" "What did I ever do to you?" ]
@@ -192,6 +193,19 @@ def process_helpful(data):
     except:
         outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
           
+def process_slash_(data):
+    logging.debug("process_slash:data: {}".format(data))
+
+    try:
+    
+        text = data[ "text" ].lower()
+        
+        if( text == "/vote" ):
+            outputs.append( [ data[ 'channel' ], "<http://www.lemoncloud.org/community/threads/voting-rewards-links.718/#post-5414>" ] )
+
+    except:
+        outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
+          
 def process_snarky(data):
     logging.debug("process_snarky:data: {}".format(data))
 
@@ -202,6 +216,10 @@ def process_snarky(data):
         
         if( text[ 0 ].isnumeric() ):
             outputs.append([data['channel'], "{}".format( eval( text ) ) ] )
+        
+        # MEMU NERD
+        elif( "memu is a n3rd" in text ):
+            outputs.append( [ data[ 'channel' ], "I agree" ] )
         
         # MEMU
         elif( "memu" in text ):
@@ -231,6 +249,10 @@ def process_snarky(data):
         elif( "zuf" in text ):
             outputs.append([data['channel'], "{}".format(random.choice(zuf))])
 
+        # VENOM
+        elif( True in [ x in text for x in [ "venom", "venomz", "venomzzzz" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(venom))])
+
             
             
         # LANGUAGE
@@ -240,10 +262,6 @@ def process_snarky(data):
         # TRUMP
         elif( "donald trump" in text ):
             outputs.append( [ data[ 'channel' ], "Are you voting for trump? If so... 5 FREAKING SECONDS TO GET OFF MY LAWN" ] )
-
-        # MEMU NERD
-        elif( "memu is a n3rd" in text ):
-            outputs.append( [ data[ 'channel' ], "I agree" ] )
 
         # AWKWARD
         elif( "this is awkward" in text ):
