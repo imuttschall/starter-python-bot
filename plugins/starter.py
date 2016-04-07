@@ -130,7 +130,7 @@ swear = [ "HEY! Watch the language!", "No swearing here!", "Do you want me to fi
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
 
-help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
+help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`lemonbot hi` for a random greeting.",
     "`lemonbot joke` for a question, typing indicator, then answer style joke.",
