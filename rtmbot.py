@@ -59,7 +59,14 @@ class RtmBot(object):
     def input(self, data):
         # Make sure we're not responding to ourselves
         if "user" in data and data['user'] != self.slack_client.server.login_data['self']['id']:
+            
+            # data is of proper form
             if "type" in data:
+            
+                # Not doing anything with this event yet
+                if data[ "type" ] == "user_typing":
+                    return
+            
                 function_name = "process_" + data["type"]
                 dbg("got {}".format(function_name))
                 dbg( "data {}".format(data))
