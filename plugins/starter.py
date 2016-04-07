@@ -134,9 +134,9 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`lemonbot hi` for a random greeting.",
     "`lemonbot joke` for a question, typing indicator, then answer style joke.",
-    "`lemonbot tell me a secret` or 'lemonbot fact of the day' to see a random fact",
+    "`lemonbot tell me a secret` or `lemonbot fact of the day` to see a random fact",
     "`lemonbot dance` to make your lemonbot dance",
-    "'lemonbot vote' to see a link for voting for lemoncloud.",
+    "`lemonbot vote` to see a link for voting for lemoncloud.",
     "`lemonbot help` to see this again.")
 
 # regular expression patterns for HELPFUL string matching
