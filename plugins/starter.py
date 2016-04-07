@@ -120,6 +120,7 @@ hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Ha
 
 smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
 slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson" "What did I ever do to you?" ]
+pew = [ "pow pow", "zap zip", "KABOOM! O.O Too much?" ]
 
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
@@ -236,6 +237,10 @@ def process_snarky(data):
         # CANNIBAL
          elif( "cannibal" in data[ "text" ] ):
             outputs.append( [ data[ 'channel' ], "<https://www.youtube.com/watch?v=o0u4M6vppCI|actual cannibal Shia Labeouf>" ] )
+
+        # PEW PEW
+         elif( "pew pew" in data[ "text" ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(pew))])
 
         # SMART
          elif( True in [ x in data[ "text" ] ] for x in [ "smart", "intelligent", "wise" ] ):
