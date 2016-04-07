@@ -140,7 +140,7 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "`lemonbot help` to see this again.")
 
 # regular expression patterns for HELPFUL string matching
-commands = [ "hi", "joke", "help", "dance", "tell me a secret", "fact of the day, vote" ]
+commands = [ "hi", "joke", "help", "dance", "tell me a secret", "fact of the day", "vote" ]
 
 p_bot_hi = re.compile("lemonbot[\s]*hi")
 p_bot_joke = re.compile("lemonbot[\s]*joke")
