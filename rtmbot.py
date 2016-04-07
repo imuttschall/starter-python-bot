@@ -15,6 +15,9 @@ from argparse import ArgumentParser
 
 from slackclient import SlackClient
 
+HELPFUL = 0
+SNARKY  = 1
+
 def dbg(debug_string):
     if debug:
         logging.debug(debug_string)
@@ -26,6 +29,7 @@ class RtmBot(object):
         self.bot_plugins = []
         self.slack_client = None
         self.bot_on = True
+        self.mode = HELPFUL
     def connect(self):
         """Convenience method that creates Server instance"""
         self.slack_client = SlackClient(self.token)
@@ -73,23 +77,33 @@ class RtmBot(object):
                 
                 if "text" in data:
                 
-                    if self.isBotMention( data[ 'text' ] ):
-                        function_name = "process_mention"
-                        self.bot_on = True
+                    if self.mode == HELPFUL or self.mode == SNARKY:
                     
-                    elif self.bot_on or data[ 'text' ].startswith( "lemonbot" ):
                         
-                        if( data[ "text" ] == "lemonbot shutup" ):
-                            self.bot_on = False
-                            function_name = "process_off"
-                        
-                        else:    
+                        if self.isBotMention( data[ 'text' ] ):
+                            function_name = "process_mention"
                             self.bot_on = True
-                                            
-                
-                    for plugin in self.bot_plugins:
-                        plugin.register_jobs()
-                        plugin.do(function_name, data)
+                        
+                        elif data[ 'text' ].startswith( "lemonbot" ):
+                            
+                            function_name = "process_helpful"
+                            
+                            if( True in [ x in data[ "text" ] ] for x in [ "hush", "shutup", "shut up", "quiet" ] ):
+                                self.mode = HELPFUL
+                                function_name = "process_mode_helpful"
+                                
+                            if( "snarky" in data[ "text" ] ):
+                                self.mode = SNARKY
+                                function_name = "process_mode_snarky"
+                                
+                            
+                        elif self.mode == SNARKY:    
+                            function_name = "process_snarky" 
+                                                
+                    
+                        for plugin in self.bot_plugins:
+                            plugin.register_jobs()
+                            plugin.do(function_name, data)
                             
     def output(self):
         for plugin in self.bot_plugins:
