@@ -189,7 +189,7 @@ def process_helpful(data):
         elif( text == "lb" or text == "lemonbot" ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( lb ) ) ] )
         
-        else
+        else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
     except:
