@@ -73,7 +73,6 @@ class RtmBot(object):
             
                 function_name = "process_" + data["type"]
                 dbg("got {}".format(function_name))
-                dbg( "data {}".format(data))
                 
                 if "text" in data:
                 
@@ -81,11 +80,12 @@ class RtmBot(object):
                     
                         
                         if self.isBotMention( data[ 'text' ] ):
+                            dbg( "mention")
                             function_name = "process_mention"
                             self.bot_on = True
                         
                         elif data[ 'text' ].startswith( "lemonbot" ):
-                            
+                            dbg( "command")
                             function_name = "process_helpful"
                             
                             if( True in [ x in data[ "text" ] ] for x in [ "hush", "shutup", "shut up", "quiet" ] ):
@@ -97,7 +97,8 @@ class RtmBot(object):
                                 function_name = "process_mode_snarky"
                                 
                             
-                        elif self.mode == SNARKY:    
+                        elif self.mode == SNARKY: 
+                            dbg( "snarky")
                             function_name = "process_snarky" 
                                                 
                     
