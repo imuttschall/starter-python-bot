@@ -187,7 +187,7 @@ def process_helpful(data):
 
         # SECRET/FACT    
         elif( "vote" in text ):
-            outputs.append( [ data[ 'channel' ], "http://www.lemoncloud.org/community/threads/voting-rewards-links.718/" ] )
+            outputs.append( [ data[ 'channel' ], "http://www.lemoncloud.org/community/threads/voting-rewards-links.718/", '"unfurl_links": true' ] )
 
         # leave at end 
         # UNKNOWN COMMAND
@@ -316,7 +316,7 @@ def process_snarky(data):
 
         # CAT BOUNCE
         elif( True in [ x in text for x in [ "cat", "bounce" ] ] ):
-            outputs.append( [ data[ 'channel' ], "http://cat-bounce.com/" ] )
+            outputs.append( [ data[ 'channel' ], "http://cat-bounce.com/", '"unfurl_links": true' ] )
 
         # HOMER
         elif( "homer simpson" in text ):
