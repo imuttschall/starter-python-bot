@@ -73,6 +73,7 @@ class RtmBot(object):
             
                 function_name = "process_" + data["type"]
                 dbg("got {}".format(function_name))
+                dbg( "data {}".format( data ) )
                 
                 if "text" in data:
                 
@@ -89,10 +90,12 @@ class RtmBot(object):
                             function_name = "process_helpful"
                             
                             if( True in [ x in data[ "text" ] ] for x in [ "hush", "shutup", "shut up", "quiet" ] ):
+                                dbg( "helpful mode" )
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
                                 
-                            if( "snarky" in data[ "text" ] ):
+                            elif( "snarky" in data[ "text" ] ):
+                                dbg( "snarky mode" )
                                 self.mode = SNARKY
                                 function_name = "process_mode_snarky"
                                 
