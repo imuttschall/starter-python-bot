@@ -85,11 +85,15 @@ class RtmBot(object):
                             function_name = "process_mention"
                             self.bot_on = True
                         
+                        elif data[ 'text' ][ 0 ] == '/':
+                            dbg( "slash command" )
+                            function_name = "process_slash"
+                        
                         elif data[ 'text' ].lower().startswith( "lemonbot" ):
                             dbg( "command")
                             function_name = "process_helpful"
                             
-                            if( True in [ x in data[ "text" ].lower() for x in [ " hush ", " shutup ", " shut up ", " quiet " ] ] ):
+                            if( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
                                 dbg( "helpful mode" )
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
