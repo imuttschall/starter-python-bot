@@ -119,6 +119,7 @@ ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon,
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
 venom = [ "Cuddly, deadly, panda bear", "Never say no to panda" ]
+lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
 
 smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
 slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson" "What did I ever do to you?" ]
@@ -138,6 +139,8 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "`lemonbot help` to see this again.")
 
 # regular expression patterns for HELPFUL string matching
+commands = [ "hi", "joke", "help", "dance", "tell me a secret", "fact of the day, vote"
+
 p_bot_hi = re.compile("lemonbot[\s]*hi")
 p_bot_joke = re.compile("lemonbot[\s]*joke")
 p_bot_attach = re.compile("lemonbot[\s]*attachment")
@@ -159,52 +162,38 @@ def process_helpful(data):
         text = data[ "text" ].lower()
         
         # GREETING
-        if p_bot_hi.match(text):
+        if( "lb hi" in text or "lemonbot hi" in text ):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
 
         # DANCE
-        elif p_bot_dance.match(text):
+        elif( "dance" in text ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( dances ) ) ] )
 
         # JOKE
-        elif p_bot_joke.match(text):
+        elif( "joke" in text ):
             outputs.append([data['channel'], "Why did the python cross the road?"])
             outputs.append([data['channel'], "__typing__", 5])
             outputs.append([data['channel'], "To eat the chicken on the other side! :laughing:"])
 
-        # ATTACH
-        #elif p_bot_attach.match(text):
-        #    txt = "Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots."
-        #    attachments.append([data['channel'], txt, build_demo_attachment(txt)])
-
         # HELP
-        elif p_bot_help.match(text):
+        elif( "help" in text ):
             outputs.append([data['channel'], "{}".format(help_text)])
 
         # SECRET/FACT    
-        elif p_bot_secret.match(text ) or p_bot_fact.match( data[ 'text'] ):
+        elif( "tell me a secret" in text or "fact of the day" in text ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
         # leave at end 
         # UNKNOWN COMMAND
-        elif text.startswith("lemonbot"):
+        elif( text == "lb" or text == "lemonbot" ):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( lb ) ) ] )
+        
+        else
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
     except:
         outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
           
-def process_slash_(data):
-    logging.debug("process_slash:data: {}".format(data))
-
-    try:
-    
-        text = data[ "text" ].lower()
-        
-        if( text == "/vote" ):
-            outputs.append( [ data[ 'channel' ], "<http://www.lemoncloud.org/community/threads/voting-rewards-links.718/#post-5414>" ] )
-
-    except:
-        outputs.append( [ data[ 'channel' ], "System error! OMG!" ] )
           
 def process_snarky(data):
     logging.debug("process_snarky:data: {}".format(data))
