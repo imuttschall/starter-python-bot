@@ -79,21 +79,21 @@ class RtmBot(object):
                 
                 if "text" in data:
                 
-                    if( self.mode == QUIET ):
-                        if( self.isAdmin( data[ 'user' ] )
-                            dbg( "quiet mode admin" )
-                            if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
-                                self.mode = HELPFUL
-                                function_name = "process_unmute"
+                    # if( self.mode == QUIET ):
+                        # if( self.isAdmin( data[ 'user' ] )
+                            # dbg( "quiet mode admin" )
+                            # if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
+                                # self.mode = HELPFUL
+                                # function_name = "process_unmute"
                                 
-                                for plugin in self.bot_plugins:
-                                    plugin.register_jobs()
-                                    plugin.do(function_name, data)
-                                return
+                                # for plugin in self.bot_plugins:
+                                    # plugin.register_jobs()
+                                    # plugin.do(function_name, data)
+                                # return
                         
-                        else:                        
-                            dbg( "admin acecss restriction" )
-                            return
+                        # else:                        
+                            # dbg( "admin acecss restriction" )
+                            # return
                     
                     if self.mode == HELPFUL or self.mode == SNARKY:
                     
@@ -112,15 +112,15 @@ class RtmBot(object):
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
                                 
-                            # elif( "lb mute" == data[ 'text' ].lower() ):
+                            elif( "lb mute" == data[ 'text' ].lower() ):
                                 
-                                # if( self.isAdmin( data[ 'user' ] ) ):
-                                    # dbg( "quiet mode" )
-                                    # self.mode = QUIET
-                                    # function_name = "process_mode_quiet"
-                                # else:
-                                    # dbg( "quiet mode access restriction" )
-                                    # function_name = "process_non_admin"
+                                if( self.isAdmin( data[ 'user' ] ) ):
+                                    dbg( "quiet mode" )
+                                    self.mode = QUIET
+                                    function_name = "process_mode_quiet"
+                                else:
+                                    dbg( "quiet mode access restriction" )
+                                    function_name = "process_non_admin"
                                 
                             elif( "snarky" in data[ "text" ].lower() ):
                                 dbg( "snarky mode" )
