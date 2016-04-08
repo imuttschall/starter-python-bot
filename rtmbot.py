@@ -17,6 +17,7 @@ from slackclient import SlackClient
 
 HELPFUL = 0
 SNARKY  = 1
+QUIET   = 2
 
 def dbg(debug_string):
     if debug:
@@ -62,6 +63,7 @@ class RtmBot(object):
             return False
     def input(self, data):
         # Make sure we're not responding to ourselves
+        
         if "user" in data and data['user'] != self.slack_client.server.login_data['self']['id']:
             
             # data is of proper form
@@ -77,6 +79,22 @@ class RtmBot(object):
                 
                 if "text" in data:
                 
+                    if( self.mode == QUIET ):
+                        if( self.isAdmin( data[ 'user' ] )
+                            dbg( "quiet mode admin" )
+                            if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
+                                self.mode = HELPFUL
+                                function_name = "process_unmute"
+                                
+                                for plugin in self.bot_plugins:
+                                    plugin.register_jobs()
+                                    plugin.do(function_name, data)
+                                return
+                        
+                        else:                        
+                            dbg( "admin acecss restriction" )
+                            return
+                    
                     if self.mode == HELPFUL or self.mode == SNARKY:
                     
                         
@@ -89,10 +107,20 @@ class RtmBot(object):
                             dbg( "command")
                             function_name = "process_helpful"
                             
-                            if( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
+                            elif( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
                                 dbg( "helpful mode" )
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
+                                
+                            elif( "lb mute" == data[ 'text' ].lower() ):
+                                
+                                if( self.isAdmin( data[ 'user' ] ) ):
+                                    dbg( "quiet mode" )
+                                    self.mode = QUIET
+                                    function_name = "process_mode_quiet"
+                                else:
+                                    dbg( "quiet mode access restriction" )
+                                    function_name = "process_non_admin"
                                 
                             elif( "snarky" in data[ "text" ].lower() ):
                                 dbg( "snarky mode" )
@@ -108,7 +136,15 @@ class RtmBot(object):
                         for plugin in self.bot_plugins:
                             plugin.register_jobs()
                             plugin.do(function_name, data)
-                            
+                                                    
+     
+    def isAdmin( self, id ):
+        user = self.slack_client.users.info( self.token, id )
+        if user[ 'is_admin' ] or user[ 'is_owner' ]:
+            return( True )
+        else:
+            return( False )
+             
     def output(self):
         for plugin in self.bot_plugins:
             limiter = False
@@ -155,6 +191,8 @@ class RtmBot(object):
             self.bot_plugins.append(Plugin(name))
 #            except:
 #                print "error loading plugin %s" % name
+
+
 
 class Plugin(object):
     def __init__(self, name, plugin_config={}):
