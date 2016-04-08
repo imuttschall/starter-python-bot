@@ -112,15 +112,15 @@ class RtmBot(object):
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
                                 
-                            elif( "lb mute" == data[ 'text' ].lower() ):
+                            # elif( "lb mute" == data[ 'text' ].lower() ):
                                 
-                                if( self.isAdmin( data[ 'user' ] ) ):
-                                    dbg( "quiet mode" )
-                                    self.mode = QUIET
-                                    function_name = "process_mode_quiet"
-                                else:
-                                    dbg( "quiet mode access restriction" )
-                                    function_name = "process_non_admin"
+                                # if( self.isAdmin( data[ 'user' ] ) ):
+                                    # dbg( "quiet mode" )
+                                    # self.mode = QUIET
+                                    # function_name = "process_mode_quiet"
+                                # else:
+                                    # dbg( "quiet mode access restriction" )
+                                    # function_name = "process_non_admin"
                                 
                             elif( "snarky" in data[ "text" ].lower() ):
                                 dbg( "snarky mode" )
