@@ -95,7 +95,7 @@ class RtmBot(object):
                             # dbg( "admin acecss restriction" )
                             # return
                     
-                    elif self.mode == HELPFUL or self.mode == SNARKY:
+                    if self.mode == HELPFUL or self.mode == SNARKY:
                     
                         
                         if self.isBotMention( data[ 'text' ] ):
