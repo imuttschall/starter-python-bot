@@ -131,6 +131,11 @@ slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//s
 pew = [ "pow pow", "zap zip", "KABOOM! O.O Too much?" ]
 meow = [ "hiss :smiley_cat:", "purr :kissing_cat:", "Meow yourself :smirking_cat:" ]
 swear = [ "HEY! Watch the language!", "No swearing here!", "Do you want me to fight you?" ]
+iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of your imagination", "I love you...tube... :heart:", "Who doesn't?", "Oh darling, if only there were someone who lover you",
+           "Already? Damn, I'm good!", "If I could only get Harry Styles to say that", "At least someone does", "Yeah, I get that a lot", "I love cake!", "You better!", "Why?", "So does my mom", 
+           "Why on earth wouldn't you?", "Don't worry, it'll pass", "OK", "Aw, what a coincidence... I love me too!", "Do you remember what happened to the last person you said that too?" ]
+uloveme = [ "My only love is venomzzzz", "I eat your cooking don't I?", "I love you as much as Kanye West love Kanye West",
+            "Did you say something? Did I tell you I went swimming and can't hear anything?", "I sure wish Memu had programmed me to understand this human emotion called love", "I love you more than you deserve" ]
 
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
@@ -190,14 +195,23 @@ def process_helpful(data):
         elif( "tell me a secret" in text or "fact of the day" in text ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( secrets ) ) ] )
 
-        # SECRET/FACT    
+        # VOTE    
         elif( "vote" in text ):
             outputs.append( [ data[ 'channel' ], "http://www.lemoncloud.org/community/threads/voting-rewards-links.718/", '"unfurl_links": true' ] )
 
-        # leave at end 
-        # UNKNOWN COMMAND
+        # LB
         elif( text == "lb" or text == "lemonbot" ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( lb ) ) ] )
+        
+        #ULOVEME
+        elif( "i love you" in text ):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( iloveu ) ) ] )
+        
+        #ULOVEME
+        elif( True in [ x in text for x in [ "do you love me", "please love me" ] ] ):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( uloveme ) ) ] )
+        
+        
         
         # MEMU
         elif( "memu" in text ):
