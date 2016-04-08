@@ -119,6 +119,9 @@ ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon,
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
 venom = [ "Cuddly, deadly, panda bear", "Never say no to panda" ]
+jono = [ "Careful, Jono will shut you down", "Where is Jono? I miss my Jonotono..." ]
+
+
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
 
 smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
@@ -226,6 +229,10 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "venom", "venomz", "venomzzzz" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(venom))])
         
+        # JONO
+        elif( True in [ x in text for x in [ "jono", "tono", "thejonotono" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(jono))])
+        
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
@@ -280,7 +287,11 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "venom", "venomz", "venomzzzz" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(venom))])
 
-            
+        # JONO
+        elif( True in [ x in text for x in [ "jono", "tono", "thejonotono" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(jono))])
+        
+        
             
         # LANGUAGE
         elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
