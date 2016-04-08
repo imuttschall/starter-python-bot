@@ -63,7 +63,7 @@ class RtmBot(object):
             return False
     def input(self, data):
         # Make sure we're not responding to ourselves
-        
+        dbg( "start input" )
         if "user" in data and data['user'] != self.slack_client.server.login_data['self']['id']:
             
             # data is of proper form
