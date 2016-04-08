@@ -388,6 +388,18 @@ def process_mode_snarky(data):
     logging.debug("process_mode_snarky:data: {}".format(data))
     outputs.append( [ data[ 'channel' ], "OF COURSE! WHY DIDN'T YOU SAY SO SOONER?!? :smiling_imp:" ] )
 
+def process_mode_quiet(data):
+    logging.debug("process_mode_quiet:data: {}".format(data))
+    outputs.append( [ data[ 'channel' ], "lemonbot now idle, admin must reactivate" ] )
+
+def process_non_admin(data):
+    logging.debug("process_non_admin:data: {}".format(data))
+    outputs.append( [ data[ 'channel' ], "I'm sorry but only an admin or owner can do that" ] )
+
+def process_unmute(data):
+    logging.debug("process_unmute:data: {}".format(data))
+    outputs.append( [ data[ 'channel' ], "I will now be helpful again. I'm sorry if I caused trouble before :persevere:" ] )
+
 def process_team_join(data):
     logging.debug("process_team_join:data: {}".format(data))
     outputs.append([data['channel'], "Welcome to Desire {}! :Heart:".format( data[ "user" ][ "name" ] ) ] )
