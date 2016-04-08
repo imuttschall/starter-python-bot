@@ -80,7 +80,7 @@ class RtmBot(object):
                 if "text" in data:
                 
                     if( self.mode == QUIET ):
-                        if( self.isAdmin( data[ 'user' ] ) )
+                        if( self.isAdmin( data[ 'user' ] ) ):
                             dbg( "quiet mode admin" )
                             if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
                                 self.mode = HELPFUL
