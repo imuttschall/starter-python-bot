@@ -95,7 +95,7 @@ class RtmBot(object):
                             dbg( "admin acecss restriction" )
                             return
                     
-                    if self.mode == HELPFUL or self.mode == SNARKY:
+                    elif self.mode == HELPFUL or self.mode == SNARKY:
                     
                         
                         if self.isBotMention( data[ 'text' ] ):
@@ -107,7 +107,7 @@ class RtmBot(object):
                             dbg( "command")
                             function_name = "process_helpful"
                             
-                            elif( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
+                            if( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
                                 dbg( "helpful mode" )
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
