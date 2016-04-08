@@ -120,6 +120,8 @@ hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Ha
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
 venom = [ "Cuddly, deadly, panda bear", "Never say no to panda" ]
 jono = [ "Careful, Jono will shut you down", "Where is Jono? I miss my Jonotono..." ]
+shadow = [ "Very lightweight... But deadly!", "Snarky pvper extraordinaire!" ]
+erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an autograph??" ]
 
 
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
@@ -233,6 +235,14 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "jono", "tono", "thejonotono" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(jono))])
         
+        # EROPHI
+        elif( True in [ x in text for x in [ "erophi", "shera" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(erophi))])
+        
+        # SHADOW
+        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(shadow))])
+        
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
@@ -291,8 +301,16 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "jono", "tono", "thejonotono" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(jono))])
         
+        # EROPHI
+        elif( True in [ x in text for x in [ "erophi", "shera" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(erophi))])
         
-            
+        # SHADOW
+        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(shadow))])
+        
+          
+          
         # LANGUAGE
         elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(swear))])
