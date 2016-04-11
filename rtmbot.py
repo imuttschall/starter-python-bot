@@ -112,7 +112,10 @@ class RtmBot(object):
                                 self.mode = HELPFUL
                                 function_name = "process_mode_helpful"
                                 
-                            elif( "lb mute" == data[ 'text' ].lower() ):
+                            elif( "mute" in data[ 'text' ].lower() ):
+                                
+                                for thing in dir( self.slack_client ):
+                                    print thing
                                 
                                 if( self.isAdmin( data[ 'user' ] ) ):
                                     dbg( "quiet mode" )
