@@ -123,6 +123,7 @@ jono = [ "Careful, Jono will shut you down", "Where is Jono? I miss my Jonotono.
 shadow = [ "Very lightweight... But deadly!", "Snarky pvper extraordinaire!" ]
 erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an autograph??" ]
 duk = [ "DukTV is the star of this group", "DukTV makes babies smile xD" ]
+matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 
 
 
@@ -264,8 +265,12 @@ def process_helpful(data):
             outputs.append([data['channel'], "{}".format(random.choice(duk))])
         
         # IMMALITY
-        elif( True in [ x in text for x in [ "imm", "immality " ] ] ):
+        elif( True in [ x in text for x in [ "imm", "immality" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(immality))])
+            
+        # MATTY
+        elif( True in [ x in text for x in [ "matt", "matty", "mattyb007" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(matty))])
             
         
         else:
@@ -342,8 +347,12 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "imm", "immality " ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(immality))])
             
+        # MATTY
+        elif( True in [ x in text for x in [ "matt", "matty", "mattyb007" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(matty))])
 
-
+            
+            
         
         # LANGUAGE
         elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
