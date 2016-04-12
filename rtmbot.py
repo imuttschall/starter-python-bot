@@ -140,7 +140,8 @@ class RtmBot(object):
      
     def isAdmin( self, id ):
         user = self.slack_client.api_call( "users.info", token="{}".format( self.token ), user="{}".format( id ) )[ "user" ]
-        if user[ 'is_admin' ] == "true" or user[ 'is_owner' ] == "true":
+        dbg( "admin print {}".format( user[ "is_admin" ] ) )
+        if user[ 'is_admin' ] or user[ 'is_owner' ] == "true":
             return( True )
         else:
             return( False )
