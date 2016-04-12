@@ -113,7 +113,7 @@ class RtmBot(object):
                                 function_name = "process_mode_helpful"
                                 
                             elif( "mute" in data[ 'text' ].lower() ):
-                                                                
+                                    dbg( "before admin check" )                          
                                 if( self.isAdmin( data[ 'user' ] ) ):
                                     dbg( "quiet mode" )
                                     self.mode = QUIET
