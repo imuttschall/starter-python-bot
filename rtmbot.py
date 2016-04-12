@@ -113,7 +113,7 @@ class RtmBot(object):
                                 function_name = "process_mode_helpful"
                                 
                             elif( "mute" in data[ 'text' ].lower() ):
-                                    dbg( "before admin check" )                          
+                                dbg( "before admin check" )                          
                                 if( self.isAdmin( data[ 'user' ] ) ):
                                     dbg( "quiet mode" )
                                     self.mode = QUIET
@@ -143,7 +143,6 @@ class RtmBot(object):
         if user[ 'is_admin' ] == "true" or user[ 'is_owner' ] == "true":
             return( True )
         else:
-        
             return( False )
              
     def output(self):
