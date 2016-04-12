@@ -143,6 +143,7 @@ class RtmBot(object):
         if user[ 'is_admin' ] == "true" or user[ 'is_owner' ] == "true":
             return( True )
         else:
+        
             return( False )
              
     def output(self):
