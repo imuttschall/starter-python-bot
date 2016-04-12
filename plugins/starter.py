@@ -118,7 +118,7 @@ beaverer = [ "I love beavers! So cute and deadly.", "//munches on wood", "OMG! I
 ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon, sing a song? //wiggles" ]
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
-venom = [ "Cuddly, deadly, panda bear", "Never say no to panda" ]
+venom = [ "When he left he broke my heart </3", "We don't talk about him anymore..." ]
 jono = [ "Careful, Jono will shut you down", "Where is Jono? I miss my Jonotono..." ]
 shadow = [ "Very lightweight... But deadly!", "Snarky pvper extraordinaire!" ]
 erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an autograph??" ]
@@ -263,6 +263,11 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "duk", "duktv" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(duk))])
         
+        # IMMALITY
+        elif( True in [ x in text for x in [ "imm", "immality " ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(immality))])
+            
+        
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
@@ -333,7 +338,10 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "duk", "duktv" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(duk))])
         
-
+        # IMMALITY
+        elif( True in [ x in text for x in [ "imm", "immality " ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(immality))])
+            
 
 
         
@@ -418,10 +426,6 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "dinosaur", "dino", "dinosaurs", "dinos" ] ] ):
             outputs.append( [ data[ 'channel' ], "Don't move. They can't see us if we don't move." ] )
 
-        # IMMALITY
-        elif( True in [ x in text for x in [ "imm ", " imm", "immality " ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(immality))])
-            
         # GREETING
         elif( True in [ x in text for x in [ "hi ", " hi", "hello", "yo ", " yo", "sup ", " sup", "hoy ", " hoy", "hey ", " hey" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(greetings))])
