@@ -124,6 +124,7 @@ shadow = [ "Very lightweight... But deadly!", "Snarky pvper extraordinaire!" ]
 erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an autograph??" ]
 duk = [ "DukTV is the star of this group", "DukTV makes babies smile xD" ]
 matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
+josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
 
 
 
@@ -272,6 +273,10 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "matt", "matty", "mattyb007" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(matty))])
             
+        # JOSH
+        elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(josh))])
+            
         
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
@@ -351,7 +356,12 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "matt", "matty", "mattyb007" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(matty))])
 
+        # JOSH
+        elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
+
+
             
         
         # LANGUAGE
