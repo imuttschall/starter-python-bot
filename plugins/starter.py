@@ -125,6 +125,7 @@ erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an aut
 duk = [ "DukTV is the star of this group", "DukTV makes babies smile xD" ]
 matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
+temper = [ "Temperz is really cool. He might even be my favorite!", "Did somebody say Temper? Does that guy ever come online?" ]
 
 
 
@@ -277,7 +278,10 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
-        
+        # TEMPER
+        elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(temper))])
+            
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
@@ -360,7 +364,10 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
-
+        # TEMPER
+        elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(temper))])
+            
 
             
         
