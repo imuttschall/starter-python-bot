@@ -279,7 +279,7 @@ def process_helpful(data):
             
         # SCORCH
         elif( True in [ x in text for x in [ "scorch", "scorch12" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(josh))])
+            outputs.append([data['channel'], "{}".format(random.choice(scorch))])
             
         
         else:
@@ -366,7 +366,7 @@ def process_snarky(data):
             
         # SCORCH
         elif( True in [ x in text for x in [ "scorch", "scorch12" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(josh))])
+            outputs.append([data['channel'], "{}".format(random.choice(scorch))])
             
 
             
