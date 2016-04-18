@@ -140,7 +140,7 @@ class RtmBot(object):
         else:
             return( False )
             
-    def getUser( self, id )
+    def getUser( self, id ):
         user = self.slack_client.api_call( "users.info", token="{}".format( self.token ), user="{}".format( id ) )[ "user" ]
         dbg( "getUser: {}".format( user[ 'name' ] ) )
         return( user )
