@@ -207,7 +207,7 @@ def process_helpful(data):
         elif( text == "lb" or text == "lemonbot" ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( lb ) ) ] )
         
-        #ULOVEME
+        #ILOVEU
         elif( "i love you" in text ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( iloveu ) ) ] )
         
@@ -452,9 +452,6 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "dinosaur", "dino", "dinosaurs", "dinos" ] ] ):
             outputs.append( [ data[ 'channel' ], "Don't move. They can't see us if we don't move." ] )
 
-        # GREETING
-        elif( True in [ x in text for x in [ "hi ", " hi", "hello", "yo ", " yo", "sup ", " sup", "hoy ", " hoy", "hey ", " hey" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(greetings))])
             
         
         
