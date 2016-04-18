@@ -115,7 +115,7 @@ c5 = [ "//Bows down to the master", "c5 Is the bomb!" ]
 kit = [ "meow :smile_cat:", "Decorator extraordinaire! :smirk_cat:" ]
 immailty = [ "Immality is awesome!", "//Does the immality dance :dancers:" ]
 beaverer = [ "I love beavers! So cute and deadly.", "//munches on wood", "OMG! Is that the real Beaverer? I love his godliness. Worship him with me!" ]
-ramon = [ "Ramondelrey Is cool. He is probably related to Lana Del Rey", "Ramon, sing a song? //wiggles" ]
+ramon = [ "Him who shall not be named...", "I miss Ramon's singing..." ]
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
 zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the trash", "A cool chill fellow" ]
 venom = [ "When he left he broke my heart </3", "We don't talk about him anymore..." ]
@@ -125,8 +125,7 @@ erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an aut
 duk = [ "DukTV is the star of this group", "DukTV makes babies smile xD" ]
 matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
-temper = [ "Temperz is really cool. He might even be my favorite!", "Did somebody say Temper? Does that guy ever come online?" ]
-
+scorch = [ "Scorch is a smart cookie", "On a scale from 1 to 10, Scorch is an 11" ]
 
 
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
@@ -278,10 +277,11 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
-        # TEMPER
-        elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(temper))])
+        # SCORCH
+        elif( True in [ x in text for x in [ "scorch", "scorch12" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
+        
         else:
             outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(text)])
                 
@@ -364,9 +364,9 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "josh", "joshdl" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
-        # TEMPER
-        elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
-            outputs.append([data['channel'], "{}".format(random.choice(temper))])
+        # SCORCH
+        elif( True in [ x in text for x in [ "scorch", "scorch12" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(josh))])
             
 
             
