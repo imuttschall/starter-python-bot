@@ -13,7 +13,6 @@ import logging
 import re
 from argparse import ArgumentParser
 
-
 from slackclient import SlackClient
 
 HELPFUL = 0
@@ -86,17 +85,12 @@ class RtmBot(object):
                             if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
                                 self.mode = HELPFUL
                                 function_name = "process_unmute"
-                                
-                                for plugin in self.bot_plugins:
-                                    plugin.register_jobs()
-                                    plugin.do(function_name, data)
-                                return
-                        
+                                                        
                         else:                        
-                            dbg( "admin acecss restriction" )
-                            return
+                            dbg( "admin access restriction" )
+                            function_name = "process_non_admin"
                     
-                    if self.mode == HELPFUL or self.mode == SNARKY:
+                    elif self.mode == HELPFUL or self.mode == SNARKY:
                     
                         
                         if self.isBotMention( data[ 'text' ] ):
@@ -140,13 +134,22 @@ class RtmBot(object):
                                                     
      
     def isAdmin( self, id ):
-        user = self.slack_client.api_call( "users.info", token="{}".format( self.token ), user="{}".format( id ) )[ "user" ]
         dbg( "admin print {}".format( user[ "is_admin" ] ) )
         if user[ 'is_admin' ] or user[ 'is_owner' ] == "true":
             return( True )
         else:
             return( False )
-             
+            
+    def getUser( self, id )
+        user = self.slack_client.api_call( "users.info", token="{}".format( self.token ), user="{}".format( id ) )[ "user" ]
+        dbg( "getUser: {}".format( user[ 'name' ] ) )
+        return( user )
+         
+    def getMembers( self ):
+        members = self.slack_client.api_call( "users.list", token="{}".format( self.token ),  )[ "members" ]
+        dbg( "getMembers: {}".format( [ x[ "name" ] for x in members ] ) )
+        return( members )
+        
     def output(self):
         for plugin in self.bot_plugins:
             limiter = False
