@@ -80,15 +80,16 @@ class RtmBot(object):
                 if "text" in data:
                 
                     if( self.mode == QUIET ):
-                        if( self.isAdmin( data[ 'user' ] ) ):
-                            dbg( "quiet mode admin" )
-                            if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
+                        if( data[ 'text' ] == "lb start" or data[ 'text' ] == "lemonbot start" ):
+                            if( self.isAdmin( data[ 'user' ] ) ):
+                                dbg( "quiet mode admin" )
+                            
                                 self.mode = HELPFUL
                                 function_name = "process_unmute"
                                                         
-                        else:                        
-                            dbg( "admin access restriction" )
-                            function_name = "process_non_admin"
+                            else:                        
+                                dbg( "admin access restriction" )
+                                function_name = "process_non_admin"
                     
                     elif self.mode == HELPFUL or self.mode == SNARKY:
                     
