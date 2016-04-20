@@ -2,6 +2,7 @@ import time
 import re
 import random
 import logging
+import math
 crontable = []
 outputs = []
 attachments = []
@@ -132,11 +133,11 @@ temper = [ "Temperz is really cool. He might even be my favorite!", "Did somebod
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
 
 smart = [ "Are you talking about me? xDD", "I am a pretty sharp cookie aren't I?", "I don't think you should be talking about smart people... >.>" ]
-slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson" "What did I ever do to you?" ]
+slaps = [ "//slaps back", "//slaps c5", "//slaps memu", "//slaps beaverer", "//slaps hacking", "//slaps Mel Gibson", "What did I ever do to you?" ]
 pew = [ "pow pow", "zap zip", "KABOOM! O.O Too much?" ]
 meow = [ "hiss :smiley_cat:", "purr :kissing_cat:", "Meow yourself :smirking_cat:" ]
 swear = [ "HEY! Watch the language!", "No swearing here!", "Do you want me to fight you?" ]
-iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of your imagination", "I love you...tube... :heart:", "Who doesn't?", "Oh darling, if only there were someone who lover you",
+iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of your imagination", "I love you...tube... :heart:", "Who doesn't?", "Oh darling, if only there were someone who loved you",
            "Already? Damn, I'm good!", "If I could only get Harry Styles to say that", "At least someone does", "Yeah, I get that a lot", "I love cake!", "You better!", "Why?", "So does my mom", 
            "Why on earth wouldn't you?", "Don't worry, it'll pass", "OK", "Aw, what a coincidence... I love me too!", "Do you remember what happened to the last person you said that too?" ]
 uloveme = [ "My only love is venomzzzz", "I eat your cooking don't I?", "I love you as much as Kanye West loves Kanye West",
@@ -303,7 +304,7 @@ def process_snarky(data):
         
         
         if( text[ 0 ].isnumeric() ):
-            outputs.append([data['channel'], "{}".format( eval( text ) ) ] )
+            outputs.append([data['channel'], "{}".format( exec( text ) ) ] )
         
         # MEMU NERD
         elif( "memu is a n3rd" in text ):
