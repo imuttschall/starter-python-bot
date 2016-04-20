@@ -134,6 +134,7 @@ class RtmBot(object):
                                                     
      
     def isAdmin( self, id ):
+        user = self.getUser( id )
         dbg( "admin print {}".format( user[ "is_admin" ] ) )
         if user[ 'is_admin' ] or user[ 'is_owner' ] == "true":
             return( True )
