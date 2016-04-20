@@ -304,7 +304,7 @@ def process_snarky(data):
         
         
         if( text[ 0 ].isnumeric() ):
-            outputs.append([data['channel'], "{}".format( exec( text ) ) ] )
+            outputs.append([data['channel'], "{}".format( eval( text ) ) ] )
         
         # MEMU NERD
         elif( "memu is a n3rd" in text ):
