@@ -102,6 +102,8 @@ class RtmBot(object):
                             dbg( "command")
                             function_name = "process_helpful"
                             
+                                    
+                            
                             if( True in [ x in data[ "text" ] for x in [ "hush", "shutup", "shut up", "quiet", "stfu" ] ] ):
                                 dbg( "helpful mode" )
                                 self.mode = HELPFUL
@@ -128,9 +130,9 @@ class RtmBot(object):
                             function_name = "process_snarky" 
                                                 
                     
-                        for plugin in self.bot_plugins:
-                            plugin.register_jobs()
-                            plugin.do(function_name, data)
+                    for plugin in self.bot_plugins:
+                        plugin.register_jobs()
+                        plugin.do(function_name, data)
                                                     
      
     def isAdmin( self, id ):
