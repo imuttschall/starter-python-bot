@@ -143,6 +143,7 @@ iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of 
 uloveme = [ "My only love is venomzzzz", "I eat your cooking don't I?", "I love you as much as Kanye West loves Kanye West",
             "Did you say something? Did I tell you I went swimming and can't hear anything?", "I sure wish Memu had programmed me to understand this human emotion called love", "I love you more than you deserve" ]
 mom = [ "#rekt", "rip", "OWNED!" ]
+bugs [ "I really wish Memu would fix my bugs :(", "I know but I love me just the way I am" ]
             
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
@@ -218,6 +219,10 @@ def process_helpful(data):
         elif( True in [ x in text for x in [ "do you love me", "please love me" ] ] ):
             outputs.append( [ data[ 'channel' ], "{}".format( random.choice( uloveme ) ) ] )
         
+        #bugs
+        elif( True in [ x in text for x in [ "bugs", "bug" ] ] ):
+            outputs.append( [ data[ 'channel' ], "{}".format( random.choice( bugs ) ) ] )
+        
         
         
         # MEMU
@@ -257,11 +262,11 @@ def process_helpful(data):
             outputs.append([data['channel'], "{}".format(random.choice(jono))])
         
         # EROPHI
-        elif( True in [ x in text for x in [ "erophi", "shera" ] ] ):
+        elif( True in [ x in text for x in [ "erophi", "shera", "ero", "rusty", "rustyero" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(erophi))])
         
         # SHADOW
-        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather" ] ] ):
+        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather", "soph", "sophie" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(shadow))])
         
         # DUKTV
@@ -352,7 +357,7 @@ def process_snarky(data):
             outputs.append([data['channel'], "{}".format(random.choice(jono))])
         
         # EROPHI
-        elif( True in [ x in text for x in [ "erophi", "shera", "ero" ] ] ):
+        elif( True in [ x in text for x in [ "erophi", "shera", "ero", "rusty", "rustyero" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(erophi))])
         
         # SHADOW
