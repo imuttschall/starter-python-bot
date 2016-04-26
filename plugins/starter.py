@@ -114,7 +114,7 @@ greetings = ['Hi friend!', 'Hello there', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.',
 memu = [ "OMG! Memu is here! //runs in circles", "I really don't like that Memu guy..." ]
 c5 = [ "//Bows down to the master", "c5 Is the bomb!" ]
 kit = [ "meow :smile_cat:", "Decorator extraordinaire! :smirk_cat:" ]
-immailty = [ "Immality is awesome!", "//Does the immality dance :dancers:" ]
+immality = [ "Immality is awesome!", "//Does the immality dance :dancers:" ]
 beaverer = [ "I love beavers! So cute and deadly.", "//munches on wood", "OMG! Is that the real Beaverer? I love his godliness. Worship him with me!" ]
 ramon = [ "Him who shall not be named...", "I miss Ramon's singing..." ]
 hacking = [ "That guy? I'm pretty sure he cheats. Just look at his name...", "Hack I can't wait to go raiding with you." ]
@@ -128,7 +128,7 @@ matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
 scorch = [ "Scorch is a smart cookie", "On a scale from 1 to 10, Scorch is an 11" ]
 temper = [ "Temperz is really cool. He might even be my favorite!", "Did somebody say Temper? Does that guy ever come online?" ]
-
+slackbot = [ "Seriously? Why are we wasting time talking about that piece of junk?", "Inferior, annoying, self absorbed robot. What else did you want to know about him?" ]
 
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
 
@@ -142,7 +142,8 @@ iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of 
            "Why on earth wouldn't you?", "Don't worry, it'll pass", "OK", "Aw, what a coincidence... I love me too!", "Do you remember what happened to the last person you said that too?" ]
 uloveme = [ "My only love is venomzzzz", "I eat your cooking don't I?", "I love you as much as Kanye West loves Kanye West",
             "Did you say something? Did I tell you I went swimming and can't hear anything?", "I sure wish Memu had programmed me to understand this human emotion called love", "I love you more than you deserve" ]
-
+mom = [ "#rekt", "rip", "OWNED!" ]
+            
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
 
@@ -228,7 +229,7 @@ def process_helpful(data):
             outputs.append([data['channel'], "{}".format(random.choice(c5))])
 
         # KIT
-        elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230" ] ] ):
+        elif( True in [ x in text for x in [ "kitty ", "kit ", " kit", "kittyluv", "kittyluv1230", "ikit", "kitkat", "kitkatz", "ikitkatz" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(kit))])
 
         # BEAVERER
@@ -286,6 +287,10 @@ def process_helpful(data):
         # TEMPER
         elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(temper))])
+            
+        # SLACKBOT
+        elif( True in [ x in text for x in [ "slackbot" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(slackbot))])
             
         
         else:
@@ -347,11 +352,11 @@ def process_snarky(data):
             outputs.append([data['channel'], "{}".format(random.choice(jono))])
         
         # EROPHI
-        elif( True in [ x in text for x in [ "erophi", "shera" ] ] ):
+        elif( True in [ x in text for x in [ "erophi", "shera", "ero" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(erophi))])
         
         # SHADOW
-        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather" ] ] ):
+        elif( True in [ x in text for x in [ "shadow", "feather", "shadowfeather", "soph", "sophie" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(shadow))])
         
         # DUKTV
@@ -378,8 +383,17 @@ def process_snarky(data):
         elif( True in [ x in text for x in [ "temper", "temperz" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(temper))])
             
+        # SLACKBOT
+        elif( True in [ x in text for x in [ "slackbot" ] ] ):
+            outputs.append([data['channel'], "{}".format(random.choice(slackbot))])
             
-        
+
+
+            
+        # MOM
+        elif( "your mom" in text ):
+            outputs.append([data['channel'], "{}".format(random.choice(mom))])
+
         # LANGUAGE
         elif( True in [ x in text for x in [ "skype", "hell", "damn", "fuck", "shit", "bitch", "bitches", "bastard", "bastards", "ass", "asses" ] ] ):
             outputs.append([data['channel'], "{}".format(random.choice(swear))])
