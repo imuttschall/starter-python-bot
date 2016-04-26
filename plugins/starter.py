@@ -143,7 +143,7 @@ iloveu = [ "I'm a machine, love does not compute...", "Love is but a figment of 
 uloveme = [ "My only love is venomzzzz", "I eat your cooking don't I?", "I love you as much as Kanye West loves Kanye West",
             "Did you say something? Did I tell you I went swimming and can't hear anything?", "I sure wish Memu had programmed me to understand this human emotion called love", "I love you more than you deserve" ]
 mom = [ "#rekt", "rip", "OWNED!" ]
-bugs = [ "I really wish Memu would fix my bugs :frown:", "I know but I love me just the way I am" ]
+bugs = [ "I really wish Memu would fix my bugs :disappointed:", "I know but I love me just the way I am" ]
             
 dances = [ "@lemonbot bobs head", "@lemonbot parties like there's no tomorrow", "@lemonbot watch me whip, watch me nae nae" ]
 
