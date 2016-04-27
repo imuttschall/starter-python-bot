@@ -130,7 +130,7 @@ matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
 scorch = [ "Scorch is a smart cookie", "On a scale from 1 to 10, Scorch is an 11" ]
 temper = [ "Temperz is really cool. He might even be my favorite!", "Did somebody say Temper? Does that guy ever come online?" ]
-astoric = [ "Hanging out with Astoric is always a blast!", "Astoric is more fun that a ball pit filled with candy" ]
+astoric = [ "Hanging out with Astoric is always a blast!", "Astoric is more fun than a ball pit filled with candy" ]
 slackbot = [ "Seriously? Why are we wasting time talking about that piece of junk?", "Inferior, annoying, self absorbed robot. What else did you want to know about him?" ]
 
 lb = [ "Yes?", "How may I help you?", "don't wear my name out" ]
