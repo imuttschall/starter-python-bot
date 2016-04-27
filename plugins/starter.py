@@ -3,6 +3,8 @@ import re
 import random
 import logging
 import math
+import subprocess
+
 crontable = []
 outputs = []
 attachments = []
@@ -122,7 +124,7 @@ zuf = [ "Hmm? I haven't seen zuf around lately... //Takes duffle bags to the tra
 venom = [ "When he left he broke my heart </3", "We don't talk about him anymore..." ]
 jono = [ "Careful, Jono will shut you down", "Where is Jono? I miss my Jonotono..." ]
 shadow = [ "Very lightweight... But deadly!", "Snarky pvper extraordinaire!" ]
-erophi = [ "Erophi is Aidan's mom", "What!? Shera is here? OMG! Can I get an autograph??" ]
+erophi = [ "Everything would be better if more people were like Erophi!", "What!? Shera is here? OMG! Can I get an autograph??" ]
 duk = [ "DukTV is the star of this group", "DukTV makes babies smile xD" ]
 matty = [ "A keen good fellow", "Matty is totally underappreciated" ]
 josh = [ "Josh's picture is next to awesome in the dictionary", "Say Josh's name again. It has a nice ring to it..." ]
@@ -314,6 +316,7 @@ def process_snarky(data):
         
         
         if( text[ 0 ].isnumeric() ):
+            
             outputs.append([data['channel'], "{}".format( eval( text ) ) ] )
         
         # MEMU NERD
